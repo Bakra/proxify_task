@@ -12,10 +12,10 @@
       </ul>
     </div>
     <div class="input-area">
-      <textarea placeholder="Type your message" v-model="input" @keyup.enter="send" :disabled="next === 0"></textarea>
+      <textarea placeholder="Type your message" v-model="input" @keyup.enter="send" :disabled="next === 0 || prevStep === (messages.length+1)"></textarea>
       <button
         class="sendButton"
-        :disabled="next === messages.length"
+        :disabled="prevStep === (messages.length+1)"
         @click="send"
       >
         {{ next === 0 ? "Let's chat" : 'Send Message' }}
